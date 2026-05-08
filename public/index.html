@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Offline - Watch Videos Anywhere</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span style="color: #ff0000;">▶</span>
+      YouTube Offline
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search videos...">
+      <button>🔍</button>
+    </div>
+    <div class="header-icons">
+      <button title="Offline Mode">📡</button>
+      <button title="Settings">⚙️</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-item active">🏠 Home</div>
+      <div class="sidebar-item">🔴 Live</div>
+      <div class="sidebar-item">⭐ Favorites</div>
+      <div class="sidebar-item">📜 History</div>
+      <div class="sidebar-item">📤 Uploads</div>
+      <div class="sidebar-item">⚙️ Settings</div>
+    </aside>
+
+    <main class="main-content">
+      <div class="loading">
+        <div class="spinner"></div>
+      </div>
+    </main>
+  </div>
+
+  <div class="offline-badge">📡 Offline Mode</div>
+
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="js/idb-handler.js"></script>
+  <script src="js/offline.js"></script>
+  <script src="js/app.js"></script>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registered'))
+        .catch(err => console.log('Service Worker registration failed:', err));
+    }
+  </script>
+</body>
+</html>
